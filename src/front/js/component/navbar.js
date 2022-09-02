@@ -3,29 +3,35 @@ import { Link } from "react-router-dom";
 //coment test dummie changes
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-light left">
-      <Link to="/">
-        <span className="navbar-brand mb-0 h1 left">InforMATE</span>
-      </Link>
-      <div className="bcontainer">
-        <div className="ml-auto">
-          <Link to="/hotels">
-            <button type="button" class="btn btn-outline-secondary">
-              Hotels
-            </button>
-          </Link>
-          <Link to="/fights">
-            <button type="button" class="btn btn-outline-secondary">
-              Flights
-            </button>
-          </Link>
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  <div class="container-fluid">
+    <Link to="/">
+    <a class="navbar-brand" href="#">InforMATE</a>
+    </Link>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <Link to="/hotels">          
+            <a class="nav-link active" aria-current="page" href="#">Hotels</a>
+          </Link>    
+        </li>
+        <li class="nav-item">
           <Link to="/restaurants">
-            <button type="button" class="btn btn-outline-secondary">
-              Retaurants
-            </button>
+            <a class="nav-link active" aria-current="page" href="#">Restaurants</a>
           </Link>
-        </div>
-      </div>
-    </nav>
+        </li>
+        <li class="nav-item">
+          <Link to="/fights">          
+            <a class="nav-link active" aria-current="page" href="#">Flights</a>
+          </Link>
+        </li>
+          <button type="button" class=" login btn btn-light">Login</button>
+        </ul>
+    </div>
+  </div>
+</nav>   
   );
 };
