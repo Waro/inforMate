@@ -6,7 +6,7 @@ import bootstrap from "bootstrap";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
-
+  //coment
   return (
     <div className="left mt-5 body">
       <h1>InforMate</h1>
