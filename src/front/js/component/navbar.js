@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Modal } from "/workspace/inforMate/src/front/js/component/Modal.js";
+import { Example } from "/workspace/inforMate/src/front/js/component/Modal.js";
 
 //coment test dummie changes
 export const Navbar = () => {
-  const [modalOpen, setModalOpen] = useState (false);
   return (
+    <>
 <nav className="navbar navbar-expand-lg navbar-dark bg-info sticky-top">
   <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 ">
     <Link to="/">
@@ -29,12 +29,12 @@ export const Navbar = () => {
             <a className="nav-link active" aria-current="page" href="#">Flights</a>
           </Link>
         </li>
-          <div className="App">
-          <button className="openModalBtn btn btn-light mx-3 login"onClick={() => {setModalOpen(true);}}> Login </button>
-          {modalOpen && <Modal setOpenModal={setModalOpen} />}
-    </div>
+        <div className="mx-3 ">
+          <Example />
+        </div>
         </ul>
     </div>
 </nav>   
+  </>
   );
 };
