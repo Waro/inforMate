@@ -1,52 +1,55 @@
+var myHeaders = new Headers();
+myHeaders.append("Api-key", "27ce8dd65b9c2c59e49624eea0d1426e");
+myHeaders.append("X-Signature", "813e48b616c075f56ebd1e69d4c13b4927cb4490aa321c2e9bae79e67eba2e99");
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Accept-Encoding", "gzip");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=100&useSecondaryLanguage=false", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			message: null,
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			hotels: [], //All hotels info
+			resturants: [],  //All resturants info
+			card: []		
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
+			getHotelData: async () => {
+				const settings = {
+					method: "GET",
+					headers: { "Content-Type": "application/json" }
+				};
 
-			getMessage: async () => {
-				try{
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
-					return data;
-				}catch(error){
-					console.log("Error loading message from backend", error)
-				}
+				const request = await fetch("https://api.test.hotelbeds.com/hotel-content-api/1.0/hotels?fields=all&language=ENG&from=1&to=100&useSecondaryLanguage=false", settings);
+				const json = await request.json();
+				const data = json;
+				setStore({ hotels: data.results });
 			},
-			changeColor: (index, color) => {
-				//get the store
+			getHotelDescription: async url => {
 				const store = getStore();
+				const settings = {
+					method: "GET",
+					headers: { "Content-Type": "application/json" }
+				};
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+				const request = await fetch(url, settings);
+				const json = await request.json();
+				const data = json;
+				setStore({ card: [...store.card, data.result.properties] });
+			},
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			charDescription: url => {
+				getActions().getCharacterDescription(url);
+			},
 		}
 	};
 };
