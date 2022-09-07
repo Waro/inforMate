@@ -9,13 +9,13 @@ import { Restaurants } from "./pages/restaurants";
 import { Trip } from "./pages/trip";
 import { Userview } from "./pages/user view";
 import { Demo } from "./pages/demo";
+import { Resetpass } from "./pages/resetpass";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Modal } from "./component/Modal.js";
-
 
 //create your first component
 const Layout = () => {
@@ -30,12 +30,13 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route element={<Home />} path="/" />
-            <Route element={<Flights />} path="/" />
-            <Route element={<Hotels />} path="/" />
-            <Route element={<Restaurants />} path="/" />
-            <Route element={<Trip />} path="/" />
-            <Route element={<Userview />} path="/" />
+            <Route element={<Flights />} path="/flights" />
+            <Route element={<Hotels />} path="/hotels" />
+            <Route element={<Restaurants />} path="/restaurants" />
+            <Route element={<Trip />} path="/trip" />
+            <Route element={<Userview />} path="/userview" />
             <Route element={<Demo />} path="/demo" />
+            <Route element={<Resetpass />} path="/resetpass" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
           </Routes>
