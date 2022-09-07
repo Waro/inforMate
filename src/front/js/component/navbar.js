@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Modal } from "/workspace/inforMate/src/front/js/component/Modal.js";
+import { Example } from "/workspace/inforMate/src/front/js/component/Modal.js";
 
 //coment test dummie changes
 export const Navbar = () => {
