@@ -1,58 +1,51 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Example } from "/workspace/inforMate/src/front/js/component/Modal.js";
+import { Example } from "./Modal";
 
 //coment test dummie changes
 export const Navbar = () => {
-  const [modalOpen, setModalOpen] = useState(false);
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-info sticky-top">
-      <Link to="/">
-        <h6>InforMATE</h6>
-      </Link>
-
-      <div
-        className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex flex-row-reverse"
-        id="navbarTogglerDemo02"
-      >
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item ">
-            <Link to="/hotels">
-              <div>
-                <button className="rounded-pill btn btn-outline-secondary">
+    <>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-info sticky-top">
+        <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 ">
+          <Link to="/">
+            <a className="navbar-brand p-3" href="#">
+              InforMATE
+            </a>
+          </Link>
+        </div>
+        <div
+          className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex flex-row-reverse"
+          id="navbarTogglerDemo02"
+        >
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item ">
+              <Link to="/hotels">
+                <a class="nav-link active" aria-current="page" href="#">
                   Hotels
-                </button>
-              </div>
-            </Link>
-          </li>
-          <li className="nav-item ">
-            <Link to="/restaurants">
-              <button className="rounded-pill btn btn-outline-secondary">
-                Restaurants
-              </button>
-            </Link>
-          </li>
-          <li className="nav-item ">
-            <Link to="/flights">
-              <button className="rounded-pill btn btn-outline-secondary">
-                Flights
-              </button>
-            </Link>
-          </li>
-          <div className="App">
-            <button
-              className="openModalBtn btn btn rounded-pill btn-outline-secondary"
-              onClick={() => {
-                setModalOpen(true);
-              }}
-            >
-              {" "}
-              Login{" "}
-            </button>
-            {modalOpen && <Modal setOpenModal={setModalOpen} />}
-          </div>
-        </ul>
-      </div>
-    </nav>
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item ">
+              <Link to="/restaurants">
+                <a className="nav-link active" aria-current="page" href="#">
+                  Restaurants
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item ">
+              <Link to="/fights">
+                <a className="nav-link active" aria-current="page" href="#">
+                  Flights
+                </a>
+              </Link>
+            </li>
+            <div className="mx-3 ">
+              <Example />
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 };
