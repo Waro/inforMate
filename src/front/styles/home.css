@@ -32,7 +32,7 @@
 /*
  navbar container set in navbar  
  */
-.navbar {
+/*.navbar {
   float: center;
   width: 100%;
   height: 10%;
@@ -54,4 +54,13 @@
 .Bigtext {
   font-size: 30px;
   float: left;
+}
+
+.login{
+  font-weight: bold;
+  outline: 50px;
+}
+
+.element{
+  text-decoration: none;
 }
