@@ -6,7 +6,7 @@ import { Context } from "../store/appContext";
 
 const hotelCard = props => {
 	const { store, actions } = useContext(Context);
-	const hotelStore = store.hotel.filter(char => char.name == props.hotel.name);
+	const hotelStore = store.hotel.filter(hotel => hotel.name == props.hotel.name);
 	useEffect(() => actions.charDescription(props.hotel.url), []);
 
 	return (
@@ -14,29 +14,20 @@ const hotelCard = props => {
 			<Card>
 				<Card.Img
 					variant="top"
-					src="https://raw.githubusercontent.com/NicolasArayaB/starwars-blog-reading-list/master/dist/img/darthvader.jpg"
+					src=""
 					width="200"
 				/>
 				<Card.Body>
 					<Card.Title>{props.hotel.name}</Card.Title>
 					{hotelStore[0] ? (
 						<Card.Text>
-							<p>Gender: {hotelStore[0].gender}</p>
-							<p>Hair Color: {hotelStore[0].hair_color}</p>
-							<p>Eye Color: {hotelStore[0].eye_color}</p>
+							<p>Hotel: {hotelStore[0].name}</p>
+							<p>Hair Color: {hotelStore[0].description}</p>
+							<p>Eye Color: {hotelStore[0].amenities}</p>
 						</Card.Text>
 					) : (
 						""
 					)}
-					<Link to={"/single/" + props.hotel.uid} data={hotelStore}>
-						<Button variant="outline-primary">Learn More</Button>
-					</Link>
-					<Button
-						variant="outline-warning"
-						className="likeBtn"
-						onClick={() => actions.addItem(props.hotel.name)}>
-						&#9825;
-					</Button>
 				</Card.Body>
 			</Card>
 		</Col>

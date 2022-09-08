@@ -4,6 +4,7 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
+import hotelCard from "../component/hotelCard";
 
 export const Hotels = () => {
   const { store, actions } = useContext(Context);
@@ -11,9 +12,12 @@ export const Hotels = () => {
   return (
     <div className=" mt-0 body">
       <h1 font="arial">InforMATE HOTELS</h1>
-      <div>
-
-      </div>
+      <div className="d-flex justify-content-between overFlow">
+					{store.hotel
+						? store.hotel.map((elem, index) => <hotelCard key={index} id={++index} hotel={elem} />)
+						: ""}
+			</div>
+      <a> hehe </a>
       <div className= "d-none"> //Display None for experiments
         <div className="card container py-3">
           <div className="row ">
