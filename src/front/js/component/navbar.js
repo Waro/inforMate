@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Example } from "./Modal";
-
+import "../../styles/home.css";
 //coment test dummie changes
 export const Navbar = () => {
   return (
@@ -21,26 +21,38 @@ export const Navbar = () => {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item ">
               <Link to="/hotels">
-                <a class="nav-link active" aria-current="page" href="#">
+                <a
+                  className=" btn btn-outline-secondary rounded-pill "
+                  aria-current="page"
+                  href="#"
+                >
                   Hotels
                 </a>
               </Link>
             </li>
             <li className="nav-item ">
               <Link to="/restaurants">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a
+                  className="btn btn-outline-secondary rounded-pill"
+                  aria-current="page"
+                  href="#"
+                >
                   Restaurants
                 </a>
               </Link>
             </li>
             <li className="nav-item ">
               <Link to="/fights">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a
+                  className="btn btn-outline-secondary rounded-pill"
+                  aria-current="page"
+                  href="#"
+                >
                   Flights
                 </a>
               </Link>
             </li>
-            <div className="mx-3 ">
+            <div className="mx-3  ">
               <Example />
             </div>
           </ul>

@@ -7,7 +7,7 @@ import { Hotels } from "./pages/hotels";
 import { Flights } from "./pages/flights";
 import { Restaurants } from "./pages/restaurants";
 import { Trip } from "./pages/trip";
-import { Userview } from "./pages/user view";
+import { Userview } from "./pages/userview";
 import { Demo } from "./pages/demo";
 import { Resetpass } from "./pages/resetpass";
 import { Single } from "./pages/single";
