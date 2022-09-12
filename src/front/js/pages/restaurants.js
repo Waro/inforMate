@@ -8,7 +8,7 @@ export const Restaurants = () => {
 
   return (
     <div className=" mt-0 body">
-      <h1>InforMATE RESTAURANTS</h1>
+      <h1 className="pagetitle">InforMATE RESTAURANTS</h1>
       <div className="container py-3">
         <div className="card">
           <div className="row ">

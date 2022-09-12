@@ -25,6 +25,7 @@ export const Example = () => {
     console.log("test");
     e.preventDefault();
     const Backend_URL = process.env.BACKEND_URL;
+
     fetch(Backend_URL + "/api/login", {
       method: "POST",
       headers: {
@@ -35,22 +36,26 @@ export const Example = () => {
         password: password,
       }),
     })
+      .catch(() => {
+        console.log("error");
+      })
       .then((data) => data.json())
       .then((datausers) => {
         console.log(datausers);
+
         if (datausers?.token) {
           sessionStorage.setItem("token", datausers.token);
           sessionStorage.setItem("email", datausers.email);
           sessionStorage.setItem("users_id", datausers.user_id);
+
+          handleClose();
+          return navigate("/userview");
         }
+
+        alert(
+          "There's something wrong with either your password or your email. Please, check again"
+        );
       });
-    navigate("/userview");
-
-    // .then((data1) => {
-    //   // The funcionality to store the token(how?)
-
-    //   navigate("/userview");
-    // });
   };
 
   return (

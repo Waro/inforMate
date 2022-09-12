@@ -10,7 +10,7 @@ export const Hotels = () => {
 
   return (
     <div className=" mt-0 body">
-      <h1 font="arial">InforMATE HOTELS</h1>
+      <h1 className="pagetitle">InforMATE HOTELS</h1>
 
       <div className="card container py-3">
         <div className="row ">

@@ -10,7 +10,7 @@ export const Home = () => {
   return (
     <div className="mt-0 body">
       <div>
-        <h1>Start creating your informate TRIP</h1>
+        <h1 className="pagetitle">Start creating your informate TRIP</h1>
       </div>
       <div className="card-container">
         <div className="card-group">
