@@ -6,12 +6,10 @@ import "../../styles/home.css";
 export const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-info sticky-top">
+      <nav className="navbar navbar-expand-lg  sticky-top">
         <div className="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 ">
-          <Link to="/">
-            <a className="navbar-brand p-3" href="#">
-              InforMATE
-            </a>
+          <Link to="/" className="brand">
+            <a>InforMATE</a>
           </Link>
         </div>
         <div
@@ -52,7 +50,7 @@ export const Navbar = () => {
                 </a>
               </Link>
             </li>
-            <div className="mx-3  ">
+            <div className="mx-3">
               <Example />
             </div>
           </ul>
