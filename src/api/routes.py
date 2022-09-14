@@ -47,3 +47,22 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+
+
+@api.route("/signup", methods=["POST"])
+def handle_signup():
+
+    email = request.json.get("email", None)
+    password = request.json.get("password", None)
+
+
+    user = User(email=email, password=password)
+    db.session.add(user)    
+    db.session.commit()
+    if user is None:
+        
+        user = User
+        return jsonify({"msg": "Bad username or password"}), 401
+
+    access_token = create_access_token(identity=user.id)
+    return jsonify({"token": access_token, "user_id": user.id, "email": email })
