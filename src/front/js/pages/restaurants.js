@@ -18,6 +18,7 @@ export const Restaurants = () => {
 				</div>
         <a className="row"> End </a>
       </div>     
+
       <div className="container py-3">
         <div className="card">
           <div className="row ">

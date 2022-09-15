@@ -8,7 +8,7 @@ export const Userview = () => {
 
   return (
     <div className=" mt-0 body">
-      <h1>InforMATE TRIP Day one</h1>
+      <h1 className="pagetitle">InforMATE TRIP Day one</h1>
       <div className="container py-3">
         <div className="card col-4">
           <div className="row ">

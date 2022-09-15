@@ -7,7 +7,7 @@ export const Flights = () => {
 
   return (
     <div className="mt-0 body">
-      <h1 full screen>
+      <h1 full screen className="pagetitle">
         flights
       </h1>
     </div>
