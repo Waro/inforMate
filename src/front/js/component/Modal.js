@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
@@ -6,13 +7,58 @@ import Stack from "react-bootstrap/Stack";
 
 export const Example = () => {
   const [show, setShow] = useState(false);
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const navigate = useNavigate();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const typeEmail = (e) => {
+    setEmail(e.target.value);
+    console.log(email);
+  };
+  const typePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const fetchlogin = (e) => {
+    console.log("test");
+    e.preventDefault();
+    const Backend_URL = process.env.BACKEND_URL;
+    fetch(Backend_URL + "/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then((data) => data.json())
+      .then((datausers) => {
+        console.log(datausers);
+        if (datausers?.token) {
+          sessionStorage.setItem("token", datausers.token);
+          sessionStorage.setItem("email", datausers.email);
+          sessionStorage.setItem("users_id", datausers.user_id);
+        }
+      });
+    navigate("/userview");
+
+    // .then((data1) => {
+    //   // The funcionality to store the token(how?)
+
+    //   navigate("/userview");
+    // });
+  };
 
   return (
     <>
-      <Button variant="outline-light" onClick={handleShow}>
+      <Button
+        variant="btn btn-outline-secondary rounded-pill"
+        onClick={handleShow}
+      >
         Login
       </Button>
       <Modal show={show} onHide={handleClose}>
@@ -21,7 +67,12 @@ export const Example = () => {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group
+              onChange={typeEmail}
+              value={email}
+              className="mb-3"
+              controlId="formBasicEmail"
+            >
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" placeholder="Enter email" />
               <Form.Text className="text-muted">
@@ -29,7 +80,12 @@ export const Example = () => {
               </Form.Text>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group
+              onChange={typePassword}
+              value={password}
+              className="mb-3"
+              controlId="formBasicPassword"
+            >
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>
@@ -38,10 +94,19 @@ export const Example = () => {
               controlId="formBasicCheckbox"
             ></Form.Group>
             <Stack direction="horizontal" gap={2}>
-              <Button variant="info" onClick={handleClose} className="">
+              <Button
+                variant="info"
+                onClick={handleClose}
+                className="rounded-pill"
+              >
                 SignUp
               </Button>
-              <Button variant="success" type="submit" className="ms-auto">
+              <Button
+                onClick={fetchlogin}
+                variant="success"
+                type="submit"
+                className="ms-auto rounded-pill"
+              >
                 Login
               </Button>
             </Stack>

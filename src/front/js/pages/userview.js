@@ -15,7 +15,7 @@ export const Userview = () => {
             <div className="col-md-4">
               <img
                 alt="Card image cap"
-                class="card-img-top img-fluid"
+                className="card-img-top img-fluid"
                 src="https://i.pinimg.com/originals/6a/4a/b4/6a4ab45313c50a524377287e98cf22de.jpg"
               />
             </div>
@@ -48,7 +48,7 @@ export const Userview = () => {
             <div className="col-md-4">
               <img
                 alt="Card image cap"
-                class="card-img-top img-fluid"
+                className="card-img-top img-fluid"
                 src="https://i.pinimg.com/originals/6a/4a/b4/6a4ab45313c50a524377287e98cf22de.jpg"
               />
             </div>
@@ -81,7 +81,7 @@ export const Userview = () => {
             <div className="col-md-4">
               <img
                 alt="Card image cap"
-                class="card-img-top img-fluid"
+                className="card-img-top img-fluid"
                 src="https://i.pinimg.com/originals/6a/4a/b4/6a4ab45313c50a524377287e98cf22de.jpg"
               />
             </div>
@@ -114,7 +114,7 @@ export const Userview = () => {
             <div className="col-md-4">
               <img
                 alt="Card image cap"
-                class="card-img-top img-fluid"
+                className="card-img-top img-fluid"
                 src="https://i.pinimg.com/originals/6a/4a/b4/6a4ab45313c50a524377287e98cf22de.jpg"
               />
             </div>
@@ -147,7 +147,7 @@ export const Userview = () => {
             <div className="col-md-4">
               <img
                 alt="Card image cap"
-                class="card-img-top img-fluid"
+                className="card-img-top img-fluid"
                 src="https://i.pinimg.com/originals/6a/4a/b4/6a4ab45313c50a524377287e98cf22de.jpg"
               />
             </div>
@@ -180,7 +180,7 @@ export const Userview = () => {
             <div className="col-md-4">
               <img
                 alt="Card image cap"
-                class="card-img-top img-fluid"
+                className="card-img-top img-fluid"
                 src="https://i.pinimg.com/originals/6a/4a/b4/6a4ab45313c50a524377287e98cf22de.jpg"
               />
             </div>

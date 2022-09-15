@@ -8,7 +8,7 @@ export const Resetpass = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className=" body mt-0">
+    <div className=" body">
       <div className="reset-container">
         <form>
           <div className="form-group">
