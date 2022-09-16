@@ -3,6 +3,8 @@ import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
+import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
+
 
 const RestaurantCard = (props) => {
   const restaurant = props.restaurant;
@@ -35,8 +37,10 @@ const RestaurantCard = (props) => {
               className="likeBtn btn  btn-outline-secondary  rounded-pill"
               onClick={() => actions.addItem(restaurant.businessname)}
             >
-              &#9825; Add to myTrip
+              &#43;  Add to myTrip
+            
             </a>
+          
           </div>
         </div>
       </div>
