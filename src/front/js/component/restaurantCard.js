@@ -25,7 +25,7 @@ const RestaurantCard = (props) => {
                 <p className="mb-2">Address: {restaurant.address}</p>
                 <p className="mb-2">Type: {restaurant.restauranttype}</p>
                 <p className="mb-2">Phone: {restaurant.phone}</p>
-                <p className="mb-2">Parking: {restaurant.parkinglot}</p>
+                <p className="mb-2">Parking: {restaurant.parkinglot ? "Available":"Not Available"}</p>
               </Card.Text>
             ) : (
               ""
@@ -35,7 +35,7 @@ const RestaurantCard = (props) => {
               className="likeBtn btn  btn-outline-secondary  rounded-pill"
               onClick={() => actions.addItem(restaurant.businessname)}
             >
-              &#9825; Favorite
+              &#9825; Add to myTrip
             </a>
           </div>
         </div>

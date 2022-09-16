@@ -10,7 +10,7 @@ export const Restaurants = () => {
     <div className=" mt-0 body">
       <h1>InforMATE RESTAURANTS</h1>
 
-      <div className="card-block px-3">
+      <div className="card-block px-3 scroll">
         {store.resturants
           ? store.resturants.map((elem, index) => (
               <RestaurantCard key={index} id={++index} restaurant={elem} />
