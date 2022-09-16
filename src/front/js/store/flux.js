@@ -4,8 +4,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			hotels: [], //All hotels info
 			resturants: [],  //All resturants info
+			mytriplist: [], //hotel and resturants saved
 		},
 		actions: {
+			
+			addItem: item => {
+				const store = getStore();
+				setStore({ favorites: [...store.favorites, { item }] });
+			},
+
+			removeItem: id => {
+				let value = document.getElementById(id).title;
+				const store = getStore();
+				setStore({ favorites: store.favorites.filter(fav => fav.item !== value) });
+			},
+			
 			getResturant: async () => {
 				var requestOptions = {
 					method: 'GET',
