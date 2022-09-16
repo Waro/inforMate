@@ -79,9 +79,11 @@
 
 .pagetitle {
   padding-left: 7%;
-  padding-top: 50px;
+  padding-top: 20px;
+  padding-bottom: 10px;
   font-size: 50px;
   color: rgba(105, 108, 110, 0.856);
+  text-align: center;
 }
 .pagetitle2 {
   padding-top: 50px;
@@ -119,8 +121,4 @@ img{
   margin-left: auto;  
   margin-right: auto;
 }
-scroll
-{
-    max-height: 400px;
-    overflow-y: scroll;
-}
+
