@@ -1,24 +1,25 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
+import hotelCard from "../component/restaurantCard";
 
 export const Hotels = () => {
   const { store, actions } = useContext(Context);
 
   return (
     <div className=" mt-0 body">
-      <h1 className="pagetitle">InforMATE <span className="navtitle"> HOTELS </span></h1>
-
+      <h1 className="pagetitle">
+        InforMATE <span className="navtitle"> HOTELS </span>
+      </h1>
       <div className="card container py-3">
         <div className="row ">
           <div className="col-md-4">
             <img
               alt="Card image cap"
               class="card-img-top img-fluid"
-              src="https://i0.wp.com/theluxurytravelexpert.com/wp-content/uploads/2017/10/four-seasons-hotel-firenze-tuscany.jpg?ssl=1"
+              src="http://cdn.cnn.com/cnnnext/dam/assets/181003185114-05-italy-beautiful-hotels-le-sirenuse.jpg"
             />
           </div>
           <div className="col-md-8 px-3">
