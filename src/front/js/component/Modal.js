@@ -44,9 +44,9 @@ export const Example = () => {
         console.log(datausers);
 
         if (datausers?.token) {
-          sessionStorage.setItem("token", datausers.token);
-          sessionStorage.setItem("email", datausers.email);
-          sessionStorage.setItem("users_id", datausers.user_id);
+          localStorage.setItem("token", datausers.token);
+          localStorage.setItem("email", datausers.email);
+          localStorage.setItem("users_id", datausers.user_id);
 
           handleClose();
           return navigate("/userview");
@@ -64,7 +64,7 @@ export const Example = () => {
     e.preventDefault();
     const Backend_URL = process.env.BACKEND_URL;
 
-    fetch(Backend_URL + "/api/signup", {
+    fetch(Backend_URL + "api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,9 +82,9 @@ export const Example = () => {
         console.log(datausers);
 
         if (datausers?.token) {
-          sessionStorage.setItem("token", datausers.token);
-          sessionStorage.setItem("email", datausers.email);
-          sessionStorage.setItem("users_id", datausers.user_id);
+          localStorage.setItem("token", datausers.token);
+          localStorage.setItem("email", datausers.email);
+          localStorage.setItem("users_id", datausers.user_id);
 
           handleClose();
           return navigate("/userview");

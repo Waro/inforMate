@@ -12,7 +12,7 @@ from flask_jwt_extended import jwt_required
 api = Blueprint('api', __name__)
 
 @api.route('/users', methods=['GET'])
-def get_users():
+def get_protect():
 
     users = User.query.all()
     response_body = {
@@ -66,3 +66,12 @@ def handle_signup():
 
     access_token = create_access_token(identity=user.id)
     return jsonify({"token": access_token, "user_id": user.id, "email": email })
+
+@api.route("/private", methods=["GET"])
+@jwt_required()
+
+def get_useridentity():
+    user_id=get_jwt_identity()
+    print("user_id is: {user_id}")
+    user=User.query.get(user_id)
+    return jsonify(user.serialize())

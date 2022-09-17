@@ -1,10 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 
 import "../../styles/home.css";
+import { useNavigate } from "react-router-dom";
 
 export const Userview = () => {
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/");
+    }
+    fetch(process.env.BACKEND_URL + "api/private", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Autorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+      .then((resp) => {
+        return resp.json;
+      })
+      .then((data) => {
+        console.log("response user identity", data);
+      });
+  }, []);
 
   return (
     <div className=" mt-0 body">
