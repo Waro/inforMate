@@ -6,10 +6,8 @@ export const Flights = () => {
   const { store, actions } = useContext(Context);
 
   return (
-    <div className="mt-0 body">
-      <h1 full screen className="pagetitle">
-        flights
-      </h1>
-    </div>
+    <h1 className="pagetitle">
+      <span className="navtitle"> Flights </span>
+    </h1>
   );
 };
