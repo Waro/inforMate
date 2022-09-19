@@ -76,12 +76,3 @@ def get_useridentity():
     user=User.query.get(user_id)
     return jsonify(user.serialize())
 
-
-@api.route("/signout", methods=["DELETE"])
-@jwt_required()
-
-def get_useridentity():
-    user_id=get_jwt_identity()
-    print("user_id is: {user_id}")
-    user=User.query.get(user_id)
-    return jsonify(user.serialize())
