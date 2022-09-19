@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Example } from "./Modal";
+import { Tripbtn } from "./Buttons";
 import "../../styles/home.css";
 //coment test dummie changes
 export const Navbar = () => {
@@ -50,6 +51,9 @@ export const Navbar = () => {
                 </a>
               </Link>
             </li>
+            <div className="mx-3">
+              <Tripbtn />
+            </div>
             <div className="mx-3">
               <Example />
             </div>
