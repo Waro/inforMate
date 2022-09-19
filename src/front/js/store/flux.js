@@ -10,13 +10,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			addItem: item => {
 				const store = getStore();
-				setStore({ favorites: [...store.favorites, { item }] });
+				setStore({ mytriplist: [...store.mytriplist, { item }] });
 			},
 
 			removeItem: id => {
 				let value = document.getElementById(id).title;
 				const store = getStore();
-				setStore({ favorites: store.favorites.filter(fav => fav.item !== value) });
+				setStore({ mytriplist: store.favorites.filter(myt => myt.item !== value) });
 			},
 			
 			getResturant: async () => {

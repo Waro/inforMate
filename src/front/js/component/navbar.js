@@ -50,6 +50,17 @@ export const Navbar = () => {
                 </a>
               </Link>
             </li>
+            <li className="nav-item ">
+              <Link to="/userview">
+                <a
+                  className="btn btn-outline-secondary rounded-pill"
+                  aria-current="page"
+                  href="#"
+                >
+                  MyTrip
+                </a>
+              </Link>
+            </li>
             <div className="mx-3">
               <Example />
             </div>

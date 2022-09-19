@@ -4,6 +4,7 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { useNavigate } from "react-router-dom";
 
+
 export const Userview = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
@@ -32,6 +33,10 @@ export const Userview = () => {
         console.log("response user identity", data);
       });
   }, []);
+    const Restaurants = () => {
+    const { store, actions } = useContext(Context);
+    console.log(store);
+  };
 
   return (
     <div className=" mt-0 body">
@@ -47,6 +52,23 @@ export const Userview = () => {
           </a>
         </div>
       </h1>
+      <div>
+      <div className=" mt-0 body">
+      <h1 className="pagetitle">
+        <span className="navtitle ">RESTAURANTS</span>
+      </h1>
+      
+      <div className="card-block py-3 pb-5">
+        {store.resturants
+          ? store.resturants.map((elem, index) => (
+              <RestaurantCard key={index} id={++index} restaurant={elem} />
+            ))
+          : ""}
+      </div>
+    </div> 
+      </div>
+
+
       <div className="container py-3">
         <div className="card col-4">
           <div className="row ">
