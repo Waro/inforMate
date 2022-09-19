@@ -108,17 +108,21 @@
   color: rgb(255, 136, 0);
   border-color: orange;
 }
+.reset-container {
+  float: center;
+  display: inline-block;
+  margin: 15%;
+}
 
 .card-img-top {
   width: 80%;
   height: 15vw;
   object-fit: cover;
-  padding-left : 11px;
+  padding-left: 11px;
 }
 
-img{
-  display: block;  
-  margin-left: auto;  
+img {
+  display: block;
+  margin-left: auto;
   margin-right: auto;
 }
-

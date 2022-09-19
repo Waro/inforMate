@@ -26,9 +26,54 @@ export const Userview = () => {
       });
   }, []);
 
+  const fetchsignout = (e) => {
+    console.log("test");
+    e.preventDefault();
+    const Backend_URL = process.env.BACKEND_URL;
+
+    fetch(Backend_URL + "/api/signout", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .catch(() => {
+        console.log("error");
+      })
+      .then((data) => data.json())
+      .then((datausers) => {
+        console.log(datausers);
+
+        if (datausers?.token) {
+          localStorage.removeItem("token", datausers.token);
+          localStorage.removeItem("email", datausers.email);
+          localStorage.removeItem("users_id", datausers.user_id);
+
+          handleClose();
+          return navigate("/userview");
+        }
+
+        
+      });
+  };
   return (
     <div className=" mt-0 body">
-      <h1 className="pagetitle">InforMATE TRIP Day one</h1>
+      <h1 className="pagetitle">
+        InforMATE TRIP Day one
+        <div>
+          <Button
+            onClick={fetchsignout}
+            type="submit"
+            className="ms-auto rounded-pill"
+          >
+            Sign Out
+          </Button>
+        </div>
+      </h1>
       <div className="container py-3">
         <div className="card col-4">
           <div className="row ">
