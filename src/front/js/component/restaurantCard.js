@@ -8,7 +8,6 @@ import { faMapLocation } from "@fortawesome/free-solid-svg-icons";
 
 const RestaurantCard = (props) => {
   const restaurant = props.restaurant;
-
   return (
     <div className="card container py-3">
       <div className="row ">
