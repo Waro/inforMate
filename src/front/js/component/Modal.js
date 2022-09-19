@@ -64,7 +64,7 @@ export const Example = () => {
     e.preventDefault();
     const Backend_URL = process.env.BACKEND_URL;
 
-    fetch(Backend_URL + "api/signup", {
+    fetch(Backend_URL + "/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -139,6 +139,13 @@ export const Example = () => {
             <Stack direction="horizontal" gap={2}>
               <Button onClick={fetchSignup} className="rounded-pill">
                 SignUp
+              </Button>
+              <Button
+                href="./resetpass"
+                type="submit"
+                className="ms-auto rounded-pill"
+              >
+                Forget password
               </Button>
               <Button
                 onClick={fetchlogin}

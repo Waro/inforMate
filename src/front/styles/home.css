@@ -107,3 +107,8 @@
   color: rgb(255, 136, 0);
   border-color: orange;
 }
+.reset-container {
+  float: center;
+  display: inline-block;
+  margin: 15%;
+}
