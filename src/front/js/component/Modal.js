@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
+import Navbar from "./navbar";
 
 export const Example = () => {
   const [show, setShow] = useState(false);
@@ -47,6 +48,7 @@ export const Example = () => {
           localStorage.setItem("token", datausers.token);
           localStorage.setItem("email", datausers.email);
           localStorage.setItem("users_id", datausers.user_id);
+          window.location.reload();
 
           handleClose();
           return navigate("/userview");

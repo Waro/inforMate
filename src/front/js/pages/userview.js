@@ -8,11 +8,12 @@ export const Userview = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  const fetchlogout = (e) => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("users_id");
-    localStorage.removeItem("email");
-  };
+  // const fetchlogout = (e) => {
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("users_id");
+  //   localStorage.removeItem("email");
+
+  // };
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -27,25 +28,26 @@ export const Userview = () => {
     })
       .then((resp) => {
         return resp.json;
+       
       })
       .then((data) => {
         console.log("response user identity", data);
-      });
+    window.reload.Userview;   });
   }, []);
 
   return (
     <div className=" mt-0 body">
       <h1 className="pagetitle">
         InforMATE TRIP Day one
-        <div>
+        {/* <div>
           <a
             onClick={fetchlogout}
             href="/"
             className="rounded-pill btn btn-outline-secondary"
           >
             SIGNOUT
-          </a>
-        </div>
+          </a> 
+        </div> */}
       </h1>
       <div className="container py-3">
         <div className="card col-4">

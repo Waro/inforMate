@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Example } from "./Modal";
+import { Tripbtn } from "./Buttons";
 import "../../styles/home.css";
 //coment test dummie changes
 export const Navbar = () => {
+  const [signup, setSignup] = useState();
+
+  useEffect(() => {
+    localStorage.getItem("token") ? setSignup(true) : setSignup(false);
+
+  }, []);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg  sticky-top">
@@ -40,7 +48,7 @@ export const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item ">
-              <Link to="/fights">
+              <Link to="/flights">
                 <a
                   className="btn btn-outline-secondary rounded-pill"
                   aria-current="page"
@@ -50,6 +58,14 @@ export const Navbar = () => {
                 </a>
               </Link>
             </li>
+            {signup === true ? (
+              <div className="mx-3">
+                <Tripbtn />
+              </div>
+            ) : (
+              <></>
+            )}
+
             <div className="mx-3">
               <Example />
             </div>
