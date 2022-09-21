@@ -28,10 +28,11 @@ export const Userview = () => {
     })
       .then((resp) => {
         return resp.json;
+       
       })
       .then((data) => {
         console.log("response user identity", data);
-      });
+    window.reload.Userview;   });
   }, []);
 
   return (
