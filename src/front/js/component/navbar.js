@@ -64,7 +64,6 @@ export const Navbar = () => {
             ) : (
               <></>
             )}
-
             <div className="mx-3">
               <Example />
             </div>
