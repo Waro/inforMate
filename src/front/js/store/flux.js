@@ -45,7 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(data);
         setStore({ resturants: data.Result });
       },
-      fetchRestaurant = (e) => {
+      fetchRestaurant: (e) => {
         console.log("test");
         e.preventDefault();
         const Backend_URL = process.env.BACKEND_URL;
@@ -70,9 +70,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .then((data) => data.json())
           .then((datarestaurant) => {
-            console.log(datarestaurant);
-          });
-      };
+          console.log(datarestaurant)
+          })
+      }
     },
   };
 };
