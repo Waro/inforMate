@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User
+from api.models import db, User, Restaurant, MyTrip
 from api.utils import generate_sitemap, APIException
 
 from flask_jwt_extended import create_access_token
@@ -75,4 +75,20 @@ def get_useridentity():
     print("user_id is: {user_id}")
     user=User.query.get(user_id)
     return jsonify(user.serialize())
+
+@api.route("/mytrip", methods=["POST"])
+def add_to_trip():   
+
+    restaurant = restaurant(
+        name=name,
+        external_api_id=external_api_id,
+        address =address,
+        typology =typology,
+        phone =phone,
+        parking =parking,
+        image =image)
+    db.session.add(restaurant)    
+    db.session.commit()
+    
+    return jsonify({restaurant})
 

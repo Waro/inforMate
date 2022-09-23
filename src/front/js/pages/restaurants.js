@@ -11,11 +11,16 @@ export const Restaurants = () => {
       <h1 className="pagetitle">
         <span className="navtitle ">RESTAURANTS</span>
       </h1>
-      
+
       <div className="card-block py-3 pb-5">
         {store.resturants
           ? store.resturants.map((elem, index) => (
-              <RestaurantCard key={index} id={++index} restaurant={elem} />
+              <RestaurantCard
+                key={index}
+                id={++index}
+                restaurant={elem}
+                type = "add"
+              />
             ))
           : ""}
       </div>
