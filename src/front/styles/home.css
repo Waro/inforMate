@@ -127,6 +127,15 @@ img {
   margin-right: auto;
 }
 
+.sky {
+  size: 100px;
+}
+.btn {
+  margin-left: 10px;
+}
+.script {
+  display: contents;
+}
 
 .nav-item{
   padding-left: 8px;
