@@ -12,7 +12,6 @@ export const Flights = () => {
         <h1 className="pagetitle">
           <span className="navtitle"> Flights </span>
         </h1>
-
       </div>
     </div>
   );
