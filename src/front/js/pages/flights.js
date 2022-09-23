@@ -13,10 +13,6 @@ export const Flights = () => {
           <span className="navtitle"> Flights </span>
         </h1>
 
-        <script
-          src="https://widgets.skyscanner.net/widget-server/js/loader.js"
-          async
-        ></script>
       </div>
     </div>
   );
