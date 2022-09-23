@@ -136,3 +136,8 @@ img {
 .script {
   display: contents;
 }
+
+.nav-item{
+  padding-left: 8px;
+}
+
