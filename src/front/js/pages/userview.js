@@ -8,9 +8,7 @@ import RestaurantCard from "../component/restaurantCard";
 export const Userview = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
-
-  console.log({ fav: store?.mytriplist });
-
+  
   const fetchlogout = (e) => {
     localStorage.removeItem("token");
     localStorage.removeItem("users_id");

@@ -20,6 +20,7 @@ const RestaurantCard = (props) => {
   const { actions } = useContext(Context);
   const restaurant = props.restaurant;
   const cardActions = restaurantActions(actions);
+      
   return (
     <div className="card container py-3">
       <div className="row ">
@@ -59,6 +60,7 @@ const RestaurantCard = (props) => {
                 variant="outline-warning"
                 className="likeBtn btn  btn-outline-secondary  rounded-pill"
                 onClick={() => cardActions[props.type]?.action(restaurant)}
+                
               >
                 {cardActions[props.type]?.title}
               </a>
