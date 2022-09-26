@@ -60,7 +60,7 @@ const RestaurantCard = (props) => {
                 variant="outline-warning"
                 className="likeBtn btn  btn-outline-secondary  rounded-pill"
                 onClick={() => cardActions[props.type]?.action(restaurant)}
-                
+                //onClick={fetchRestaurant}
               >
                 {cardActions[props.type]?.title}
               </a>

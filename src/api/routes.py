@@ -8,6 +8,7 @@ from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
+from flask_sqlalchemy import SQLAlchemy
 
 api = Blueprint('api', __name__)
 
@@ -91,4 +92,11 @@ def add_to_trip():
     db.session.commit()
     
     return jsonify({restaurant})
+
+@api.route("/myList", methods=["GET"])
+
+def get_mylist():
+    name=name.query.get(external_api_id)
+    
+    return jsonify(restaurant)
 
