@@ -49,20 +49,20 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log("test");
         e.preventDefault();
         const Backend_URL = process.env.BACKEND_URL;
-    
+
         fetch(Backend_URL + "/api/restaurant", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            name : name,
-            external_api_id : external_api_id,
-            address : address,
-            typology : typology,
-            phone : phone,
-            parking : parking,
-            image : image
+            name: name,
+            external_api_id: external_api_id,
+            address: address,
+            typology: typology,
+            phone: phone,
+            parking: parking,
+            image: image,
           }),
         })
           .catch(() => {
@@ -70,9 +70,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .then((data) => data.json())
           .then((datarestaurant) => {
+
           console.log(datarestaurant)
           })
       }
+
     },
   };
 };

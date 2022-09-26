@@ -13,7 +13,7 @@
   margin: 7%;
   margin-top: 15%;
   padding-bottom: 10%;
-  display: flex;
+  display: center;
 }
 .card {
   float: center;
@@ -137,7 +137,12 @@ img {
   display: contents;
 }
 
-.nav-item{
+.nav-item {
   padding-left: 8px;
 }
+.container {
+  float: center;
+  display: flexbox;
 
+  padding-bottom: 20%;
+}
