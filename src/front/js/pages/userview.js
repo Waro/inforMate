@@ -33,6 +33,9 @@ export const Userview = () => {
         console.log("response user identity", data);
         window.reload.Userview;
       });
+
+    // This will fetch all the info of the restaurants saved from the user
+    // actions.fetchmyTrip();
   }, []);
   const Restaurants = () => {
     const { store, actions } = useContext(Context);
