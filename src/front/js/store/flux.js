@@ -70,9 +70,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .then((data) => data.json())
           .then((datarestaurant) => {
-            console.log(datarestaurant);
-          });
-      },
+
+          console.log(datarestaurant)
+          })
+      }
+
     },
   };
 };
