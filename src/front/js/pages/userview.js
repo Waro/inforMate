@@ -19,7 +19,7 @@ export const Userview = () => {
     if (!localStorage.getItem("token")) {
       navigate("/");
     }
-    fetch(process.env.BACKEND_URL + "api/private", {
+    fetch(process.env.BACKEND_URL + "/api/private", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
