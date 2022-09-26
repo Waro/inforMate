@@ -56,7 +56,7 @@ def handle_signup():
     password = request.json.get("password", None)
 
 
-    user = User(email=email, password=password)
+    user = User(email=email, password=password, )
     db.session.add(user)    
     db.session.commit()
     if user is None:

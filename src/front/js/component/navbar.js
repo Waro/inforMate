@@ -26,35 +26,33 @@ export const Navbar = () => {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item ">
               <Link to="/hotels">
-                <a
+                <button
                   className=" btn btn-outline-secondary rounded-pill "
                   aria-current="page"
                   href="#"
                 >
                   Hotels
-                </a>
+                </button>
               </Link>
             </li>
             <li className="nav-item ">
               <Link to="/restaurants">
-                <a
+                <button
                   className="btn btn-outline-secondary rounded-pill"
                   aria-current="page"
-                  href="#"
                 >
                   Restaurants
-                </a>
+                </button>
               </Link>
             </li>
             <li className="nav-item ">
               <Link to="/flights">
-                <a
+                <button
                   className="btn btn-outline-secondary rounded-pill"
                   aria-current="page"
-                  href="#"
                 >
                   Flights
-                </a>
+                </button>
               </Link>
             </li>
             {signup === true ? (
