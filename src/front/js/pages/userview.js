@@ -8,7 +8,7 @@ import RestaurantCard from "../component/restaurantCard";
 export const Userview = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
-  
+
   const fetchlogout = (e) => {
     localStorage.removeItem("token");
     localStorage.removeItem("users_id");
@@ -28,11 +28,11 @@ export const Userview = () => {
     })
       .then((resp) => {
         return resp.json;
-       
       })
       .then((data) => {
         console.log("response user identity", data);
-    window.reload.Userview;   });
+        window.reload.Userview;
+      });
   }, []);
   const Restaurants = () => {
     const { store, actions } = useContext(Context);
@@ -40,18 +40,7 @@ export const Userview = () => {
 
   return (
     <div className=" mt-0 body">
-      <h1 className="pagetitle">
-        InforMATE TRIP Day one
-        {/* <div>
-          <a
-            onClick={fetchlogout}
-            href="/"
-            className="rounded-pill btn btn-outline-secondary"
-          >
-            SIGNOUT
-          </a> 
-        </div> */}
-      </h1>
+      <h1 className="pagetitle">InforMATE TRIP Day one</h1>
       <div>
         <div className=" mt-0 body">
           <h1 className="pagetitle">

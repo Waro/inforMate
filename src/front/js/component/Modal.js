@@ -87,6 +87,7 @@ export const Example = () => {
           localStorage.setItem("token", datausers.token);
           localStorage.setItem("email", datausers.email);
           localStorage.setItem("users_id", datausers.user_id);
+          window.location.reload();
 
           handleClose();
           return navigate("/userview");
