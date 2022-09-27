@@ -18,8 +18,18 @@ export const Restaurants = () => {
               <RestaurantCard
                 key={index}
                 id={++index}
-                restaurant={elem}
-                type = "add"
+                restaurant={{
+                  name: elem.businessname,
+                  external_api_id: elem.id,
+                  address: elem.address,
+                  typology: elem.typology,
+                  phone: elem.phone,
+                  restauranttype: elem.restauranttype,
+                  parking: elem.parkinglot,
+                  image: elem.image,
+                  userid: localStorage.getItem("users_id"),
+                }}
+                type="add"
               />
             ))
           : ""}

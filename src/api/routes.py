@@ -10,7 +10,12 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_sqlalchemy import SQLAlchemy
 
+# marshmallow-sqlalchemy flask-sqlalchemy
+from flask_marshmallow import Marshmallow
+
+
 api = Blueprint('api', __name__)
+ma = Marshmallow(api)
 
 
 @api.route('/users', methods=['GET'])
@@ -81,9 +86,10 @@ def get_useridentity():
 
 
 @api.route("/restaurants", methods=["POST"])
+@jwt_required()
 def add_restaurant():
-    
-    userid =  request.json.get("userid", None)
+
+    userid = request.json.get("userid", None)
     name = request.json.get("name", None)
     external_api_id = request.json.get("external_api_id", None)
     address = request.json.get("address", None)
@@ -91,7 +97,7 @@ def add_restaurant():
     phone = request.json.get("phone", None)
     parking = request.json.get("parking", None)
     image = request.json.get("image", None)
-   
+
     restaurant = Restaurant(
         name=name,
         external_api_id=external_api_id,
@@ -101,14 +107,47 @@ def add_restaurant():
         parking=parking,
         image=image,
         user_id=userid)
+
     db.session.add(restaurant)
     db.session.commit()
 
     return jsonify({"msg": "New restaurant added"}), 201
 
 
+# With this class we can easilly map the restaurants of the user
+class RestaurantSchema(ma.Schema):
+    class Meta:
+        fields = (
+            "id",
+            "name",
+            "external_api_id",
+            "address",
+            "typology",
+            "phone",
+            "parking",
+            "image",
+            "user_id")
+
+
 @api.route("/restaurants/<user_id>", methods=["GET"])
+@jwt_required()
 def get_restaurants(user_id):
-    restaurants = Restaurant.query.filter_by(
-        user_id=user_id, external_api_id=external_api_id)
-    return jsonify({"msg": "New restaurant added"}), 201
+    restaurants = Restaurant.query.filter_by(user_id=user_id)
+
+    restaurants_schema = RestaurantSchema(many=True)
+    restaurants_json = restaurants_schema.dump(restaurants)
+
+    return jsonify(restaurants=restaurants_json), 201
+
+
+@api.route("/restaurants/<id>", methods=["DELETE"])
+@jwt_required()
+def delete_restaurant(id):
+    restaurant = Restaurant.query.get(id)
+    restaurant_schema = RestaurantSchema()
+    restaurants_json = restaurant_schema.dump(restaurant)
+
+    db.session.delete(restaurant)
+    db.session.commit()
+
+    return jsonify({"msg": "restaurant successfully deleted", "restaurant": restaurants_json}), 200

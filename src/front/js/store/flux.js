@@ -15,15 +15,24 @@ const getState = ({ getStore, getActions, setStore }) => {
         const newTripList = [...store.mytriplist, { ...item }];
         setStore({ mytriplist: newTripList });
       },
-
-      removeItem: (restaurantToRemove) => {
+      removeItem: async (restaurantToRemove) => {
         const store = getStore();
 
         const filteredList = store.mytriplist.filter(
           (myt) => myt.id !== restaurantToRemove.id
         );
 
-        console.log({ restaurantToRemove, filteredList });
+        const Backend_URL = process.env.BACKEND_URL;
+
+        await fetch(Backend_URL + `/api/restaurants/${restaurantToRemove.id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }).catch(() => {
+          console.log("error");
+        });
 
         setStore({
           mytriplist: filteredList,
@@ -42,7 +51,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
         const json = await request.json();
         const data = json;
-        console.log(data);
         setStore({ resturants: data.Result });
       },
       addRestaurant: (item) => {
@@ -52,17 +60,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-          body: JSON.stringify({
-            name: item.businessname,
-            external_api_id: item.id,
-            address: item.address,
-            typology: item.typology,
-            phone: item.phone,
-            parking: item.parking,
-            image: item.image,
-            userid: localStorage.getItem("users_id"),
-          }),
+          body: JSON.stringify(item),
         })
           .catch(() => {
             console.log("error");
@@ -73,20 +73,24 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      fetchmyTrip: async (e) => {
-        e.preventDefault();
+      fetchmyTrip: async () => {
         const Backend_URL = process.env.BACKEND_URL;
+        const user_id = localStorage.getItem("users_id");
 
-        const triplistAnswer = await fetch(Backend_URL + "/api/mytrip", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
+        const triplistAnswer = await fetch(
+          Backend_URL + `/api/restaurants/${user_id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        )
           .then((data) => data.json())
           .then((triplist) => triplist);
 
-        setStore({ mytriplist: triplistAnswer });
+        setStore({ mytriplist: triplistAnswer.restaurants });
       },
     },
   };

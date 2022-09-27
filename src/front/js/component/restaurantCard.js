@@ -15,7 +15,7 @@ const restaurantActions = (actions) => ({
 
   remove: {
     title: "- Delete from my Trip",
-    action: (e, itemToRemove) => actions.removeItem(itemToRemove),
+    action: (_e, itemToRemove) => actions.removeItem(itemToRemove),
   },
 });
 
@@ -31,7 +31,7 @@ const RestaurantCard = (props) => {
           <img
             alt="Card image cap"
             class="card-img-top img-fluid"
-            src={restaurant.image}
+            src={restaurant?.image}
           />
         </div>
         <div className="col-md-8 px-3">
@@ -43,16 +43,16 @@ const RestaurantCard = (props) => {
                 fontSize: "2rem",
               }}
             >
-              {restaurant.businessname}
+              {restaurant?.name}
             </Card.Title>
             {restaurant ? (
               <Card.Text>
                 <p className="mb-2">Address: {restaurant.address}</p>
-                <p className="mb-2">Type: {restaurant.restauranttype}</p>
+                <p className="mb-2">Type: {restaurant?.restauranttype}</p>
                 <p className="mb-2">Phone: {restaurant.phone}</p>
                 <p className="mb-2">
                   Parking:{" "}
-                  {restaurant.parkinglot ? "Available" : "Not Available"}
+                  {restaurant?.parkinglot ? "Available" : "Not Available"}
                 </p>
               </Card.Text>
             ) : (

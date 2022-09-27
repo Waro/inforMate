@@ -9,40 +9,16 @@ export const Userview = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  const fetchlogout = (e) => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("users_id");
-    localStorage.removeItem("email");
-  };
-
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/");
     }
-    fetch(process.env.BACKEND_URL + "/api/private", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Autorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
-      .then((resp) => {
-        return resp.json;
-      })
-      .then((data) => {
-        console.log("response user identity", data);
-        window.reload.Userview;
-      });
 
-    // This will fetch all the info of the restaurants saved from the user
-    // actions.fetchmyTrip();
+    if (localStorage.getItem("token")) actions.fetchmyTrip();
   }, []);
-  const Restaurants = () => {
-    const { store, actions } = useContext(Context);
-  };
 
   return (
-    <div className=" mt-0 body">
+    <div className="mt-0 body">
       <h1 className="pagetitle">InforMATE TRIP Day one</h1>
       <div>
         <div className=" mt-0 body">
@@ -51,15 +27,14 @@ export const Userview = () => {
           </h1>
 
           <div className="card-block py-3 pb-5">
-            {store.mytriplist &&
-              store.mytriplist.map((elem, index) => (
-                <RestaurantCard
-                  key={index}
-                  id={index}
-                  restaurant={elem}
-                  type="remove"
-                />
-              ))}
+            {store?.mytriplist?.map((elem, index) => (
+              <RestaurantCard
+                key={index}
+                id={index}
+                restaurant={elem}
+                type="remove"
+              />
+            ))}
           </div>
         </div>
       </div>
