@@ -7,12 +7,15 @@ import "../../styles/home.css";
 const restaurantActions = (actions) => ({
   add: {
     title: "+ Add to myTrip",
-    action: (itemToAdd) => actions.addItem(itemToAdd),
+    action: (e, itemToAdd) => {
+      e.preventDefault();
+      actions.addRestaurant(itemToAdd);
+    },
   },
 
   remove: {
     title: "- Delete from my Trip",
-    action: (itemToRemove) => actions.removeItem(itemToRemove),
+    action: (e, itemToRemove) => actions.removeItem(itemToRemove),
   },
 });
 
@@ -20,7 +23,7 @@ const RestaurantCard = (props) => {
   const { actions } = useContext(Context);
   const restaurant = props.restaurant;
   const cardActions = restaurantActions(actions);
-      
+
   return (
     <div className="card container py-3">
       <div className="row ">
@@ -59,8 +62,7 @@ const RestaurantCard = (props) => {
               <a
                 variant="outline-warning"
                 className="likeBtn btn  btn-outline-secondary  rounded-pill"
-                onClick={() => cardActions[props.type]?.action(restaurant)}
-                //onClick={fetchRestaurant}
+                onClick={(e) => cardActions[props.type]?.action(e, restaurant)}
               >
                 {cardActions[props.type]?.title}
               </a>
